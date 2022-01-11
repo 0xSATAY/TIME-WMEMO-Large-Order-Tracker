@@ -41,7 +41,6 @@ def get_data(contract_address, threshold):
                         indicator = "🟢" if i['type'] == "buy" else "🔴"
                         response = f"{num_whale_emoji * '🐳'}\n\n${r.json()['baseTokenSymbol']}/{r.json()['quoteTokenSymbol']}\n\n{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(i['blockTimestamp']/1000))}\n\n {indicator} ${i['volumeUsd']} {i['type']} @ ${i['priceUsd']}\n\nTxn Hash: {i['txnHash']}"
                         print(response)
-                        print(API_KEY)
                         requests.get(f'https://api.telegram.org/bot{API_KEY}/sendMessage?chat_id={CHAT_ID}&text={response}&disable_web_page_preview=true')
 
 
