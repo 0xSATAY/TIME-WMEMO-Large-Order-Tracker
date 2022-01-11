@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 CHAT_ID = os.getenv("CHAT_ID")
-alert_bot = telebot.TeleBot(API_KEY)
 
 contract_addresses = [["https://io4.dexscreener.io/u/trading-history/recent/avalanche/0x4d308C46EA9f234ea515cC51F16fba776451cac8",100000], ["https://io4.dexscreener.io/u/trading-history/recent/avalanche/0x113f413371fc4cc4c9d6416cf1de9dfd7bf747df",100000]]#, ["https://io4.dexscreener.io/u/trading-history/recent/ethereum/0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",1000000]]
 threadlist = []
@@ -48,7 +47,7 @@ def get_data(contract_address, threshold):
 
     except:
         print(traceback.format_exc())
-
+        get_data(contract_address, threshold)
 
 def main():
     global contract_addresses
@@ -59,9 +58,7 @@ def main():
         threadlist.append(t)
     for thread in threadlist:
         thread.join()
-    alert_bot.polling()
 
 
 if __name__ == "__main__":
-    while True:
-        main()
+    main()

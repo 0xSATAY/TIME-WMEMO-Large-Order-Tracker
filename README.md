@@ -10,7 +10,6 @@ A telegram bot that notifies when there are orders greater than $100,000 for TIM
 4. [TODO](#todo)
 
 ## About the Project
-
 The bot uses decentralized exchange (DEX) transactions data from dexscreener.com and notifies when there are unusually large orders. The threshold for large orders can be set manually. You can also add your own pairs manually in the code.
 
 More improvements will be added in the future such as custom support for commands for user customisation directly on Telegram.
@@ -55,6 +54,6 @@ $ python3 bot.py
 ## TODO
 
 - [ ] Try to get actual data using a DEX API instead of borrowing from Dexscreener
-- [ ] Save local logs of large orders using CSV 
+- [ ] Save local logs of large orders using CSV
 - [ ] Make the bot customisable using Telegram
 - [ ] Maybe copy trades automatically from certain wallets in the future(?)
